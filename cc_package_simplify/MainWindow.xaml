@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:cc_package_simplify"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+   
     <Grid>
-        
+        <Image HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>
