@@ -1,0 +1,15 @@
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\bin\Release\cc_package_simplify.exe.config
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\bin\Release\cc_package_simplify.exe
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\bin\Release\cc_package_simplify.pdb
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.csproj.AssemblyReference.cache
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\MainWindow.g.cs
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\App.g.cs
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify_MarkupCompile.cache
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify_MarkupCompile.lref
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\MainWindow.baml
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.g.resources
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.Properties.Resources.resources
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.csproj.GenerateResource.cache
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.csproj.CoreCompileInputs.cache
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.exe
+E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Release\cc_package_simplify.pdb
