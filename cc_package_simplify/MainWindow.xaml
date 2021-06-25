@@ -5,57 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cc_package_simplify"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1280" HorizontalAlignment="Center" VerticalAlignment="Center" WindowStyle="SingleBorderWindow">
-    <Window.Resources>
-        <Style TargetType="local:BackgroundPlayer">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="local:BackgroundPlayer">
-                        <MediaElement x:Name="Media" Stretch="Fill" Volume="0.5" Balance="0" ></MediaElement>
+        Title="Ahri" Height="600" Width="360" 
+        FontFamily="Microsoft YaHei" FontWeight="ExtraLight"
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Border Margin="5" Background="White" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.8*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Border Background="#007DFA" CornerRadius="10,10,0,0"/>
+            <Button VerticalAlignment="Top" HorizontalAlignment="Right" Width="40" Height="30">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        
                     </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
-    <Grid Width="1778" Height="1000" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Grid.Background>
-            <VisualBrush>
-                <VisualBrush.Visual>
-                    <local:BackgroundPlayer x:Name="mediaElement" Source="./Resources/bg1.mp4"></local:BackgroundPlayer>
-                </VisualBrush.Visual>
-            </VisualBrush>
-        </Grid.Background>
-        <ListView x:Name="ls1" ScrollViewer.HorizontalScrollBarVisibility="Disabled" AllowDrop="True" Drop="onFileDrop" HorizontalAlignment="Center" Height="424" Margin="674,163,260,0" VerticalAlignment="Top" Width="844" Foreground="#B2041236" Background="#198080FF" FontFamily="Consolas" FontSize="20">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBox x:Name="editorText" IsReadOnly="True" HorizontalAlignment="Left" Height="250" Margin="674,592,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="844" FontFamily="Consolas" FontSize="20" Background="#198080FF" Foreground="#B2041236"/>
-        <ScrollViewer HorizontalAlignment="Left" Height="679" Margin="257,163,0,0" VerticalAlignment="Top" Width="412">
-            <!--<StackPanel  Width="390"/>-->
-            <Button Content="" Height="287" Width="18" Click="Button_Click" RenderTransformOrigin="0.5,0.5" BorderBrush="White">
-                <Button.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="90"/>
-                        <TranslateTransform Y="-317" X="28"/>
-                    </TransformGroup>
-                </Button.RenderTransform>
-                <Button.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                        <GradientStop Color="Black"/>
-                        <GradientStop Color="{DynamicResource {x:Static SystemColors.MenuHighlightColorKey}}" Offset="0.156"/>
-                        <GradientStop Color="#FFE2A63E" Offset="0.321"/>
-                        <GradientStop Color="#FF3E89E2" Offset="0.482"/>
-                        <GradientStop Color="#FF8430E8" Offset="0.65"/>
-                        <GradientStop Color="#FFE830AD" Offset="0.815"/>
-                        <GradientStop Color="#FFF30F58" Offset="0.959"/>
-                    </LinearGradientBrush>
-                </Button.Background>
+                </Button.Template>
             </Button>
-        </ScrollViewer>
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

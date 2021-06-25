@@ -41,7 +41,7 @@ namespace cc_package_simplify
             };
 
             //mediaElement.Player.Volume = 
-            Debug.setEditorText(editorText);
+            //Debug.setEditorText(editorText);
 
 
 
@@ -60,26 +60,26 @@ namespace cc_package_simplify
 
         }
 
-        private void Convert()
-        {
-            var start = DateTime.Now;
-            Debug.log($"{start.ToString()}: Convert Start");
+        //private void Convert()
+        //{
+        //    var start = DateTime.Now;
+        //    Debug.log($"{start.ToString()}: Convert Start");
 
-            foreach (var item in ls1.Items)
-            {
-                var webMobileUrl = item.ToString();
-                new Thread(() =>
-                {
+        //    foreach (var item in ls1.Items)
+        //    {
+        //        var webMobileUrl = item.ToString();
+        //        new Thread(() =>
+        //        {
 
-                    string root = System.IO.Path.GetFileNameWithoutExtension(webMobileUrl);
-                    new Converter(webMobileUrl).Output($"Publish/{root}");
+        //            string root = System.IO.Path.GetFileNameWithoutExtension(webMobileUrl);
+        //            new Converter(webMobileUrl).Output($"Publish/{root}");
 
-                }).Start();
-            }
+        //        }).Start();
+        //    }
 
-            Debug.log($"{DateTime.Now.ToString()}: Convert End\nUsetime: {(DateTime.Now - start).TotalSeconds}sec");
+        //    Debug.log($"{DateTime.Now.ToString()}: Convert End\nUsetime: {(DateTime.Now - start).TotalSeconds}sec");
 
-        }
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -103,6 +103,11 @@ namespace cc_package_simplify
             }
 
 
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            //Convert();
         }
     }
 }

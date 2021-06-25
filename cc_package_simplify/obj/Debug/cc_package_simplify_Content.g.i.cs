@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fa.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("convert_img_arrow.png")]
 
 
