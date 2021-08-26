@@ -7,10 +7,10 @@ using System.Windows;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("cc_package_simplify")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Cocos Creator 3.01 BuildTool")]
+[assembly: AssemblyDescription("由极客七开发")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("hellowd")]
 [assembly: AssemblyProduct("cc_package_simplify")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
@@ -52,4 +52,4 @@ using System.Windows;
 //通过使用 "*"，如下所示:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.1")]

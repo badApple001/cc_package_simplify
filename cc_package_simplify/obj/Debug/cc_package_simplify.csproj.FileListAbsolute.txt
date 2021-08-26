@@ -1,7 +1,6 @@
 D:\workspace\cc_package_simplify\cc_package_simplify\bin\Debug\cc_package_simplify.exe.config
 D:\workspace\cc_package_simplify\cc_package_simplify\bin\Debug\cc_package_simplify.exe
 D:\workspace\cc_package_simplify\cc_package_simplify\bin\Debug\cc_package_simplify.pdb
-D:\workspace\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simplify.csprojAssemblyReference.cache
 D:\workspace\cc_package_simplify\cc_package_simplify\obj\Debug\MainWindow.g.cs
 D:\workspace\cc_package_simplify\cc_package_simplify\obj\Debug\App.g.cs
 D:\workspace\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simplify_MarkupCompile.cache
@@ -29,3 +28,4 @@ E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simpl
 E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simplify.exe
 E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simplify.pdb
 E:\GIT\Github\cc_package_simplify\cc_package_simplify\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\workspace\cc_package_simplify\cc_package_simplify\obj\Debug\cc_package_simplify.csprojAssemblyReference.cache

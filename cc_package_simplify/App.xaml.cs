@@ -27,7 +27,6 @@ namespace cc_package_simplify
 
         void App_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)
         {
-
             string err = "Error encountered! Please contact support." + Environment.NewLine + e.Exception.Message + "\n" + e.Exception.StackTrace;
             Debug.log(err);
             MessageBox.Show(err);

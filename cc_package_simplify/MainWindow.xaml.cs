@@ -105,9 +105,11 @@ namespace cc_package_simplify
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            //Convert();
+            System.Windows.Application.Current.Shutdown();
         }
+
     }
 }
