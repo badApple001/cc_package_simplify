@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:cc_package_simplify"
-        mc:Ignorable="d"
+        xmlns:common="clr-namespace:cc_package_simplify.Common"
+        mc:Ignorable="d" Name="window"
         Title="Ahri" Height="600" Width="360" 
         FontFamily="FiraCode" FontWeight="ExtraLight"
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
@@ -24,11 +25,20 @@
             </ControlTemplate.Triggers>
         </ControlTemplate>
         <ControlTemplate TargetType="Button" x:Key="LoginBtnTemplate">
-            <Border Background="#007DFA">
-                <ContentControl Content="{TemplateBinding Content}" 
+            <Border Background="#007DFA" CornerRadius="5">
+                <Grid>
+                    <Border CornerRadius="4" Background="#22FFFFFF" Name="back" Visibility="Hidden"/>
+                    <ContentControl Content="{TemplateBinding Content}" 
                                 Foreground="{TemplateBinding Foreground}"
-                                VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                VerticalAlignment="Center" 
+                                HorizontalAlignment="Center"/>
+                </Grid>
             </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Visibility" Value="Visible" TargetName="back"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
         </ControlTemplate>
 
         <ImageBrush x:Key="APPLog" ImageSource="./Assets/Imgs/icon-256@2x.png"/>
@@ -175,7 +185,7 @@
                                               Focusable="false" HorizontalScrollBarVisibility="Hidden" 
                                               VerticalScrollBarVisibility="Hidden"
                                               VerticalAlignment="Center" MinHeight="20" Grid.ColumnSpan="2" Margin="0,9"/>
-                                <Image Source="./Assets/ValidationCode/6vdY.png" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5"/>
+                                <Image Source="{Binding loginModel.ValidationCodeUrl}" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="0.5"/>
                             </Grid>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -211,11 +221,13 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="1.8*"/>
                 <RowDefinition Height="3*"/>
-                <RowDefinition Height="60"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
-            <Border Background="#007DFA" CornerRadius="10,10,0,0"/>
+            <Border Background="#007DFA" CornerRadius="10,10,0,0" MouseLeftButtonDown= "WinMove_LeftButtonDown" />
             <Button VerticalAlignment="Top" HorizontalAlignment="Right" Width="40" Height="30"
-                    Template="{StaticResource CloseButtonTemplate}" Click="Button_Click_2">
+                    Template="{StaticResource CloseButtonTemplate}" 
+                    Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding ElementName=window}">
             </Button>
             <StackPanel VerticalAlignment="Center">
                 <Border Width="110" Height="110">
@@ -224,7 +236,7 @@
                     </Border.Effect>
                     <Border Width="100" Height="100" Background="{StaticResource APPLog}"/>
                 </Border>
-                <TextBlock Text="Cocos Creator 试玩打包工具" HorizontalAlignment="Center" Foreground="White" FontSize="18" Margin="0,20,0,0"/>
+                <TextBlock Text="Cocos Creator 试玩打包工具" FontWeight="Light" HorizontalAlignment="Center" Foreground="White" FontSize="18" Margin="0,20,0,0"/>
             </StackPanel>
             <Grid Grid.Row="1" Margin="20,10">
                 <Grid.RowDefinitions>
@@ -232,13 +244,21 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition MinHeight="23" Height="auto"/>
                 </Grid.RowDefinitions>
-                <TextBox Height="40" Text="123456" FontSize="16" Foreground="#555" Style="{DynamicResource UserNameTextBoxStyle}"/>
-                <PasswordBox Grid.Row="1" Height="40" FontSize="16" Foreground="#555" Password="123456" Style="{DynamicResource PasswordBoxStyle}"/>
-                <TextBox Grid.Row="2" Height="40" Text="" FontSize="16" Foreground="#555" Style="{DynamicResource VlidationCodeTextBoxStyle}"/>
-                <Button Content="登陆" Grid.Row="3" Height="40" Foreground="White" FontSize="16" Template="{StaticResource LoginBtnTemplate}"/>
-                <TextBlock Text="&#xe601;" Foreground="Red" Grid.Row="4" FontSize="30" FontFamily="./Assets/Fonts/#iconfont"/>
+                <TextBox Height="40" Text="{Binding loginModel.UserName}" FontSize="16" Foreground="#555" Style="{DynamicResource UserNameTextBoxStyle}"/>
+                <PasswordBox Grid.Row="1" Height="40" Style="{DynamicResource PasswordBoxStyle}" 
+                             FontSize="16" Foreground="#555"
+                             common:PasswordHelper.Attach="True"
+                             common:PasswordHelper.Password="{Binding loginModel.Password}"/>
+                <TextBox Grid.Row="2" Height="40" Text="{Binding loginModel.ValidationCode}" FontSize="16" Foreground="#555" Style="{DynamicResource VlidationCodeTextBoxStyle}"/>
+                <Button Content="登    录" Grid.Row="3" Height="40" 
+                        Foreground="White" FontSize="16" 
+                        Template="{StaticResource LoginBtnTemplate}"
+                        Command="{Binding LoginCommand}"/>
+                <TextBlock Text="{Binding loginModel.ErrorMsg}" Foreground="Red" Grid.Row="4" FontSize="13" 
+                           HorizontalAlignment="Center"
+                           TextWrapping="Wrap" LineHeight="22"/>
             </Grid>
             <Grid Grid.Row="2" Margin="20,0">
                 <Grid.RowDefinitions>
@@ -256,11 +276,25 @@
                     <TextBlock Text="OR" Grid.Column="1" Foreground="#CCC" VerticalAlignment="Center" HorizontalAlignment="Center" />
                 </Grid>
                 <UniformGrid Columns="5" Grid.Row="1">
-                    <Border Background="Gray"/>
+                    <UniformGrid.Resources>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="Foreground" Value="#DDD"/>
+                            <Setter Property="FontSize" Value="40"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontFamily" Value="./Assets/Fonts/#iconfont"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Foreground" Value="#007DFA"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </UniformGrid.Resources>
+                    <TextBlock Text="&#xe631;"/>
                     <Border/>
-                    <Border Background="Gray"/>
+                    <TextBlock Text="&#xe62e;"/>
                     <Border/>
-                    <Border Background="Gray"/>
+                    <TextBlock Text="&#xea9e;"/>
                 </UniformGrid>
             </Grid>
         </Grid>

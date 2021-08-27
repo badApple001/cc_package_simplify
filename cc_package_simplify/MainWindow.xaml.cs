@@ -9,6 +9,7 @@ using ListView = System.Windows.Controls.ListView;
 using DragEventArgs = System.Windows.DragEventArgs;
 using DataFormats = System.Windows.DataFormats;
 using SolidColorBrush = System.Windows.Media.SolidColorBrush;
+using cc_package_simplify.ViewModel;
 
 namespace cc_package_simplify
 {
@@ -23,9 +24,9 @@ namespace cc_package_simplify
 
         public MainWindow()
         {
-            Debug.log(">>>>>>>>>construct");
 
             InitializeComponent();
+            this.DataContext = new LoginViewModel();
 
             int result = 0;
             IPlatform.CanNetworking = InternetGetConnectedState(out result, 0) == true;
@@ -105,11 +106,11 @@ namespace cc_package_simplify
 
         }
 
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        //鼠标拖动
+        private void WinMove_LeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            System.Windows.Application.Current.Shutdown();
+            if (e.LeftButton == System.Windows.Input.MouseButtonState.Pressed)
+                this.DragMove();
         }
-
     }
 }
