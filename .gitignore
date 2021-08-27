@@ -1,5 +1,6 @@
 # Prerequisites
 *.d
+.vs
 
 # Compiled Object files
 *.slo
@@ -30,3 +31,5 @@
 *.exe
 *.out
 *.app
+cc_package_simplify/obj/Debug/cc_package_simplify.csprojAssemblyReference.cache
+.vs/cc_package_simplify/v16/.suo
