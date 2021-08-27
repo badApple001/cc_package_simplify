@@ -236,7 +236,7 @@
                 </Grid.RowDefinitions>
                 <TextBox Height="40" Text="123456" FontSize="16" Foreground="#555" Style="{DynamicResource UserNameTextBoxStyle}"/>
                 <PasswordBox Grid.Row="1" Height="40" FontSize="16" Foreground="#555" Password="123456" Style="{DynamicResource PasswordBoxStyle}"/>
-                <TextBox Grid.Row="2" Height="40" Text="123" FontSize="16" Foreground="#555" Style="{DynamicResource VlidationCodeTextBoxStyle}"/>
+                <TextBox Grid.Row="2" Height="40" Text="" FontSize="16" Foreground="#555" Style="{DynamicResource VlidationCodeTextBoxStyle}"/>
                 <Button Content="登陆" Grid.Row="3" Height="40" Foreground="White" FontSize="16" Template="{StaticResource LoginBtnTemplate}"/>
                 <TextBlock Text="&#xe601;" Foreground="Red" Grid.Row="4" FontSize="30" FontFamily="./Assets/Fonts/#iconfont"/>
             </Grid>
